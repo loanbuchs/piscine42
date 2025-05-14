@@ -6,19 +6,12 @@
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:25:04 by loan              #+#    #+#             */
-/*   Updated: 2025/05/14 15:35:02 by loan             ###   ########.fr       */
+/*   Updated: 2025/05/14 15:53:03 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TAIL_H
-#define FT_TAIL_H
-
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
-#include <errno.h>
-
-
+# define FT_TAIL_H
 
 int	ft_atoi(char *str);
 int	ft_strlen(char *str);

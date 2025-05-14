@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tail_src1                                       :+:      :+:    :+:   */
+/*   ft_tail_src1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:22:35 by loan              #+#    #+#             */
-/*   Updated: 2025/05/14 15:39:20 by loan             ###   ########.fr       */
+/*   Updated: 2025/05/14 15:49:09 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,15 @@ int	ft_display(char *file_name, int bytes)
 	file = open(file_name, 0);
 	while (i < bytes)
 	{
-		reading = read(file, &buffer,1);
+		reading = read(file, &buffer, 1);
 		i++;
 	}
-	while ((reading = read(file, &buffer, 1)))
+	reading = read(file, &buffer, 1);
+	while (reading)
+	{
 		write(1, &buffer, 1);
+		reading = read(file, &buffer, 1);
+	}
 	close(file);
 	return (1);
 }

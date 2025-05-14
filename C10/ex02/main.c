@@ -6,7 +6,7 @@
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 10:00:48 by loan              #+#    #+#             */
-/*   Updated: 2025/05/14 15:38:03 by loan             ###   ########.fr       */
+/*   Updated: 2025/05/14 15:53:40 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <ft_tail_head.h>
-
+#include <ft_tail.h>
 
 int	ft_size_file(char *file_name)
 {
@@ -42,18 +41,19 @@ int	ft_size_file(char *file_name)
 int	canrun(char *argv1, char *argv2, int argc)
 {
 	int	bytes;
-	
+
 	if (!(*argv1 == '-' && argv1[1] == 'c' && argv1[2] == 0))
 	{
 		write(1, "use option -c", 13);
-		return(0);
+		return (0);
 	}
 	if (argc < 3)
 	{
 		write(1, "tail: option requires an argument -- 'c'", 40);
 		return (0);
 	}
-	if ((bytes = ft_atoi(argv2)) < 0)
+	bytes = ft_atoi(argv2);
+	if (bytes < 0)
 	{
 		write(1, "tail: invalid number of bytes: '", 32);
 		write(1, argv2, ft_strlen(argv2));
@@ -67,7 +67,7 @@ int	ft_tail_stdin(int bytes)
 {
 	char	buffer[30000];
 	int		i;
-	
+
 	i = 0;
 	while (read(0, &buffer[i], 1))
 		i++;
@@ -92,7 +92,7 @@ int	ft_tail_stdin(int bytes)
 	return (0);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	int	fsize;
 	int	i;
@@ -113,5 +113,5 @@ int main(int argc, char *argv[])
 		if (argc == 3)
 			ft_tail_stdin(bytes);
 	}
-	return(0);
+	return (0);
 }
