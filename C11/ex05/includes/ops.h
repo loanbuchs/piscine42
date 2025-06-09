@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ops.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/14 15:25:04 by loan              #+#    #+#             */
+/*   Updated: 2025/05/26 17:25:49 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	save;
+#ifndef OPS_H
+# define OPS_H
 
-	save = length;
-	while (length != 0)
-	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
-	}
-	return (tab);
-}
+void	add(int value1, int value2);
+void	sub(int value1, int value2);
+void	mult(int value1, int value2);
+void	div(int value1, int value2);
+void	modulo(int value1, int value2);
+#endif 

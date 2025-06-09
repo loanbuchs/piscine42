@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/26 13:35:39 by loan              #+#    #+#             */
+/*   Updated: 2025/05/26 14:03:21 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	save;
 
 	save = length;
-	while (length != 0)
+	while (length - 1)
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		if (f(tab[save - length], tab[save - length + 1]) >= 0)
+			length--;
+		else
+			return (0);
 	}
-	return (tab);
+	return (1);
 }

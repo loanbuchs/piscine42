@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/26 13:26:58 by loan              #+#    #+#             */
+/*   Updated: 2025/05/26 13:35:12 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+int	ft_count_if(char **tab, int length, int (*f)(char*))
 {
+	int	count;
 	int	save;
 
 	save = length;
-	while (length != 0)
+	count = 0;
+	while (length)
 	{
-		tab[save - length] = f(tab[save - length]);
+		if (f(tab[save - length]))
+			count++;
 		length--;
 	}
-	return (tab);
+	return (count);
 }

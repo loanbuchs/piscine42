@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/29 15:52:55 by loan              #+#    #+#             */
+/*   Updated: 2025/05/29 16:24:44 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	save;
+#include "ft_list.h"
+#include <stdlib.h>
 
-	save = length;
-	while (length != 0)
+void	ft_list_reverse(t_list **begin_list)
+{
+	t_list	*last_node;
+	t_list	*next_node;
+
+	last_node = NULL;
+	while (*begin_list)
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		next_node = (*begin_list)->next;
+		(*begin_list)->next = last_node;
+		last_node = *begin_list;
+		*begin_list = next_node;
 	}
-	return (tab);
+	*begin_list = last_node;
 }

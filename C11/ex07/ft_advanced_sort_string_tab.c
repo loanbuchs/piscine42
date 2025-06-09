@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/28 00:49:37 by loan              #+#    #+#             */
+/*   Updated: 2025/05/28 01:05:50 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	int	save;
+	int		i;
+	char	*save;
 
-	save = length;
-	while (length != 0)
+	i = 1;
+	while (tab[i + 1])
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		if (cmp(tab[i], tab[i + 1]) > 0)
+		{
+			save = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = save;
+		}
+		i++;
 	}
-	return (tab);
+	i = 1;
+	while (tab[i + 1])
+	{
+		if (cmp(tab[i], tab[i + 1]) > 0)
+			ft_advanced_sort_string_tab(tab, cmp);
+		i++;
+	}
 }

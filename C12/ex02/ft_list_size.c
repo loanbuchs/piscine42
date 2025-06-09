@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/28 18:12:15 by loan              #+#    #+#             */
+/*   Updated: 2025/05/28 18:33:42 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	save;
+#include "ft_list.h"
 
-	save = length;
-	while (length != 0)
+int	ft_list_size(t_list *begin_list)
+{
+	int	count;
+
+	count = 0;
+	while (begin_list)
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		begin_list = begin_list->next;
+		count++;
 	}
-	return (tab);
+	return (count);
 }

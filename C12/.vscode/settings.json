@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"cstdlib": "c",
+		"ft_list.h": "c"
+	}
+}

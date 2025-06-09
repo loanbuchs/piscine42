@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/28 18:34:29 by loan              #+#    #+#             */
+/*   Updated: 2025/05/28 18:44:52 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	save;
+#include "ft_list.h"
 
-	save = length;
-	while (length != 0)
+t_list	*ft_list_last(t_list *beginlist)
+{
+	t_list	*last_node;
+
+	while (beginlist)
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		last_node = beginlist;
+		beginlist = beginlist->next;
 	}
-	return (tab);
+	return (last_node);
 }

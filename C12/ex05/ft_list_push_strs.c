@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_push_strs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 18:11:02 by loan              #+#    #+#             */
-/*   Updated: 2025/05/26 13:26:12 by loan             ###   ########.fr       */
+/*   Created: 2025/05/28 23:51:54 by loan              #+#    #+#             */
+/*   Updated: 2025/05/29 00:10:44 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	save;
+#include "ft_list.h"
 
-	save = length;
-	while (length != 0)
+t_list	*ft_list_push_strs(int size, char **strs)
+{
+	t_list	*node;
+	t_list	*lastnode;
+
+	while (size)
 	{
-		tab[save - length] = f(tab[save - length]);
-		length--;
+		node = ft_create_elem(strs[size]);
+		node->next = lastnode;
+		lastnode = node;
+		size--;
 	}
-	return (tab);
+	return (lastnode);
 }

@@ -6,11 +6,20 @@
 /*   By: loan <loan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 18:29:37 by loan              #+#    #+#             */
-/*   Updated: 2025/03/22 18:30:28 by loan             ###   ########.fr       */
+/*   Updated: 2025/05/26 13:28:40 by loan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_any(char **tab, int(*f)(char*))
+int	ft_any(char **tab, int (*f)(char*))
 {
-	
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (f(tab[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }

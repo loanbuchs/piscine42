@@ -28,12 +28,8 @@ void	ft_sort_int_tab(int *tab, int size)
 	while (i < size)
 	{
 		if (tab[i] > tab[i + 1])
-		{
 			swap(&tab[i], &tab[i + 1]);
-			i++;
-		}
-		else
-			i++;
+		i++;
 	}
 	i = 0;
 	while (i < size)
